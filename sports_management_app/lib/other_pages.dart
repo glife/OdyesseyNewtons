@@ -89,10 +89,10 @@ class SportsStorePage extends StatelessWidget {
   SportsStorePage({super.key});
 
   final List<Map<String, String>> sportsProducts = [
-    {'title': 'Football Boots', 'image': 'assets/store/product1.jpg'},
-    {'title': 'Basketball Jersey', 'image': 'assets/store/product2.jpg'},
-    {'title': 'Tennis Racket', 'image': 'assets/store/product3.jpg'},
-    {'title': 'Running Shoes', 'image': 'assets/store/product4.jpg'},
+    {'title': 'Football Boots', 'image': 'assets/images/product1.jpg'},
+    {'title': 'Basketball Jersey', 'image': 'assets/images/product2.jpg'},
+    {'title': 'Tennis Racket', 'image': 'assets/images/product3.jpg'},
+    {'title': 'Running Shoes', 'image': 'assets/images/product4.jpg'},
   ];
 
   @override
