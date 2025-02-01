@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:video_player/video_player.dart';
 import 'news_page.dart'; // Import the NewsPage file
+import 'other_pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -123,6 +124,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 10),
               //Image.asset('assets/images/testing.png'),
               GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Adjust to 2 columns for 4 items
@@ -156,7 +158,7 @@ class _HomePageState extends State<HomePage> {
 
                   return Card(
                     elevation: 4,
-                    color: Colors.blueAccent.withOpacity(0.1),
+                    //color: Colors.blueAccent.withOpacity(0.1),
                     child: InkWell(
                       onTap: () {
                         if (index == 3) {
@@ -164,6 +166,21 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(builder: (context) => NewsPage()),
                           );
+                        } else if (index == 0) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TrainingVideosPage()));
+                        } else if (index == 1) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EventBookingPage()));
+                        } else if (index == 2) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SportsStorePage()));
                         }
                       },
                       child: ClipRRect(
