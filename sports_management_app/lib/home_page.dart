@@ -82,10 +82,10 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     _featuredImage('assets/images/top1.png'),
-                    _featuredImage('assets/images/top2.png'),
-                    _featuredImage('assets/images/top3.png'),
-                    _featuredImage('assets/images/top4.png'),
-                    _featuredImage('assets/images/top5.png'),
+                    //_featuredImage('assets/images/top2.jpg'),
+                    _featuredImage('assets/images/top3.jpg'),
+                    _featuredImage('assets/images/top4.jpg'),
+                    _featuredImage('assets/images/top5.jpg'),
                   ],
                 ),
               ),
@@ -245,9 +245,12 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         // Handle button click
       },
-      icon: Icon(icon, size: 28),
-      label: Text(label,
-          style: TextStyle(fontFamily: 'Lato', fontWeight: FontWeight.bold)),
+      icon: Icon(icon, size: 30),
+      label: Text(
+        label,
+        style: TextStyle(
+            fontFamily: 'Lato', fontWeight: FontWeight.bold, fontSize: 18),
+      ),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.green,
         foregroundColor: Colors.black,
