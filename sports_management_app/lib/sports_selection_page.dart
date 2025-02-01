@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sports_management_app/home_page.dart';
 
 class SportsSelectionPage extends StatefulWidget {
   const SportsSelectionPage({super.key});
@@ -48,10 +49,10 @@ class _SportsSelectionPageState extends State<SportsSelectionPage> {
             fontSize: 24,
           ),
         ),
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: Colors.green,
       ),
       body: Container(
-        color: Colors.greenAccent, // Updated to plain green background
+        color: Colors.green, // Updated to plain green background
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -112,7 +113,13 @@ class _SportsSelectionPageState extends State<SportsSelectionPage> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Handle selected sports
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return HomePage();
+                      },
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
