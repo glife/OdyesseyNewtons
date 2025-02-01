@@ -4,12 +4,12 @@ class TrainingVideosPage extends StatelessWidget {
   TrainingVideosPage({super.key});
 
   final List<Map<String, String>> trainingVideos = [
-    {'title': 'Pro Dribbling Techniques', 'image': 'assets/videos/video1.jpg'},
-    {'title': 'Mastering Free Kicks', 'image': 'assets/videos/video2.jpg'},
-    {'title': 'Endurance Training Tips', 'image': 'assets/videos/video3.jpg'},
+    {'title': 'Pro Dribbling Techniques', 'image': 'assets/images/video1.png'},
+    {'title': 'Mastering Free Kicks', 'image': 'assets/images/video2.jpg'},
+    {'title': 'Endurance Training Tips', 'image': 'assets/images/video3.jpeg'},
     {
       'title': 'Strength Training for Athletes',
-      'image': 'assets/videos/video4.jpg'
+      'image': 'assets/images/video4.jpg'
     },
   ];
 
