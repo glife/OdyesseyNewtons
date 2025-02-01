@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+//import 'package:video_player/video_player.dart';
+import 'news_page.dart'; // Import the NewsPage file
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,23 +10,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
+  // late VideoPlayerController _controller;
+  // late Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/videos/smallvideo.mp4')
-      ..initialize().then((_) {
-        setState(
-            () {}); // Ensure the first frame is shown after the video is initialized
-      });
+    // _controller = VideoPlayerController.asset('assets/videos/smallvideo.mp4')
+    //   ..initialize().then((_) {
+    //     setState(
+    //         () {}); // Ensure the first frame is shown after the video is initialized
+    //   });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    //_controller.dispose();
   }
 
   @override
@@ -75,13 +76,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 10),
-              // Featured Video
-              Container(
-                height: 200,
-                color: Colors.grey[300], // Placeholder for the featured video
-                child: _controller.value.isInitialized
-                    ? VideoPlayer(_controller)
-                    : const Center(child: CircularProgressIndicator()),
+// Featured Images (Scrollable)
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _featuredImage('assets/images/top1.png'),
+                    _featuredImage('assets/images/top2.png'),
+                    _featuredImage('assets/images/top3.png'),
+                    _featuredImage('assets/images/top4.png'),
+                    _featuredImage('assets/images/top5.png'),
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
               // Quick Access Buttons (same as before)
@@ -105,31 +111,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 20),
               // Mid Section - User Progress & Engagement (same as before)
-              const Text(
-                'Your Progress & Engagement',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.blueAccent.withOpacity(0.1),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _progressRow('Performance Stats', '75%'),
-                    _progressRow('Last Match Played', 'Football vs Team B'),
-                    _progressRow('Streaks', '5 Matches'),
-                    _progressRow('Challenges', 'Complete 3 Goals'),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
+
               // Main Categories (same as before)
               const Text(
                 'Explore Categories',
@@ -177,21 +159,49 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.blueAccent.withOpacity(0.1),
                     child: InkWell(
                       onTap: () {
-                        // Handle tap on image (e.g., navigate to a new screen)
+                        if (index == 3) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => NewsPage()),
+                          );
+                        }
                       },
                       child: ClipRRect(
-                        borderRadius:
-                            BorderRadius.circular(15), // Rounded corners
+                        borderRadius: BorderRadius.circular(15),
                         child: Image.asset(
-                          imagePath, // Use the selected image path
-                          fit: BoxFit
-                              .cover, // Makes sure the image fits inside the grid item
+                          imagePath,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
                   );
                 },
-              )
+              ),
+              const Text(
+                'Your Progress & Engagement',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.blueAccent.withOpacity(0.1),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _progressRow('Performance Stats', '75%'),
+                    _progressRow('Last Match Played', 'Football vs Team B'),
+                    _progressRow('Streaks', '5 Matches'),
+                    _progressRow('Challenges', 'Complete 3 Goals'),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -236,14 +246,30 @@ class _HomePageState extends State<HomePage> {
         // Handle button click
       },
       icon: Icon(icon, size: 28),
-      label: Text(label),
+      label: Text(label,
+          style: TextStyle(fontFamily: 'Lato', fontWeight: FontWeight.bold)),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      ),
+    );
+  }
+
+  Widget _featuredImage(String imagePath) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(
+          imagePath,
+          height: 200, // Adjust height as needed
+          width: 360, // Adjust width as needed
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

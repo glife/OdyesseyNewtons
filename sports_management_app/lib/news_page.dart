@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 
-void main() {
-  runApp(SportSphereNewsApp());
-}
-
-class SportSphereNewsApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'SportSphere News',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        accentColor: Colors.green,
-      ),
-      home: NewsPage(),
-    );
-  }
-}
+// class SportSphereNewsApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'SportSphere News',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//         //accentColor: Colors.green,
+//       ),
+//       home: NewsPage(),
+//     );
+//   }
+// }
 
 class NewsPage extends StatelessWidget {
+  NewsPage({super.key});
+
   final List<Map<String, String>> breakingNews = [
     {
       'title': 'Star Player Transfers!',
@@ -85,41 +83,41 @@ class NewsPage extends StatelessWidget {
                     color: Colors.blue),
               ),
             ),
-            CarouselSlider(
-              options: CarouselOptions(autoPlay: true, height: 200),
-              items: breakingNews.map((news) {
-                return Card(
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                          news['image']!,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 10,
-                        left: 10,
-                        child: Text(
-                          news['title']!,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            backgroundColor: Colors.black54,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
+            // CarouselSlider(
+            //   options: CarouselOptions(autoPlay: true, height: 200),
+            //   items: breakingNews.map((news) {
+            //     return Card(
+            //       elevation: 4,
+            //       shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(10)),
+            //       child: Stack(
+            //         children: [
+            //           ClipRRect(
+            //             borderRadius: BorderRadius.circular(10),
+            //             child: Image.network(
+            //               news['image']!,
+            //               fit: BoxFit.cover,
+            //               width: double.infinity,
+            //             ),
+            //           ),
+            //           Positioned(
+            //             bottom: 10,
+            //             left: 10,
+            //             child: Text(
+            //               news['title']!,
+            //               style: TextStyle(
+            //                 fontSize: 16,
+            //                 fontWeight: FontWeight.bold,
+            //                 color: Colors.white,
+            //                 backgroundColor: Colors.black54,
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     );
+            //   }).toList(),
+            // ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
