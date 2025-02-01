@@ -95,7 +95,7 @@ class _SportsSelectionPageState extends State<SportsSelectionPage> {
                           ],
                         ),
                         selected: isSelected,
-                        selectedColor: Colors.green,
+                        selectedColor: const Color.fromARGB(255, 18, 62, 20),
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
