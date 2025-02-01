@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        fontFamily: 'Lato',
+        fontFamily: 'Clemente',
         colorScheme: ColorScheme.fromSeed(
           seedColor: Color.fromRGBO(254, 206, 1, 1),
           primary: Color.fromRGBO(254, 206, 1, 1),
